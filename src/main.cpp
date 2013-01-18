@@ -73,7 +73,8 @@ public:
 		//    sub_kinect2_rgb = it_.subscribe("/sn_kinect2/rgb/image_color", 1, &ImageConverter::imageCb_rgb2, this);
 		// sub_kinect1_depth = it_.subscribe("/sn_kinect2/rgb/image_color", 1, &ImageConverter::imageCb_depth1, this);
 
-		cascade = (CvHaarClassifierCascade *) cvLoad("/home/kijin/rosWorkspace/tutorialROSOpenCV/haarcascade_frontalface_alt.xml", 0, 0, 0);
+		cascade = (CvHaarClassifierCascade *) cvLoad("example1_sp_hi_fd/haarcascade_frontalface_alt.xml", 0, 0, 0);
+		//cascade = (CvHaarClassifierCascade *) cvLoad("/home/kijin/workspace/example1_sp_hi_fd/haarcascade_frontalface_alt.xml", 0, 0, 0);
 		storage = cvCreateMemStorage(0);
 
 	}
