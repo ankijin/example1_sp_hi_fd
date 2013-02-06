@@ -31,6 +31,9 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/kijin/workspace/example1_sp_hi_fd
 
@@ -62,48 +65,17 @@ CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/image_common/image_tra
 CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/share/std_msgs/manifest.xml
 CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
 CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/share/rospy/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/vision_opencv/image_geometry/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/bond_core/bond/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/share/pcl/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/share/rosbag/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/share/rostest/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/share/roswtf/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/common_rosdeps/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/share/stereo_msgs/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/image_pipeline/depth_image_proc/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/image_common/camera_calibration_parsers/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/image_pipeline/image_proc/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/image_common/camera_info_manager/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/openni_camera/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/openni_launch/manifest.xml
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
-CMakeFiles/example.dir/src/main.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/kijin/workspace/example1_sp_hi_fd/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/example.dir/src/main.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/example.dir/src/main.o -c /home/kijin/workspace/example1_sp_hi_fd/src/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/example.dir/src/main.o -c /home/kijin/workspace/example1_sp_hi_fd/src/main.cpp
 
 CMakeFiles/example.dir/src/main.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/example.dir/src/main.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/kijin/workspace/example1_sp_hi_fd/src/main.cpp > CMakeFiles/example.dir/src/main.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/kijin/workspace/example1_sp_hi_fd/src/main.cpp > CMakeFiles/example.dir/src/main.i
 
 CMakeFiles/example.dir/src/main.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/example.dir/src/main.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/kijin/workspace/example1_sp_hi_fd/src/main.cpp -o CMakeFiles/example.dir/src/main.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/kijin/workspace/example1_sp_hi_fd/src/main.cpp -o CMakeFiles/example.dir/src/main.s
 
 CMakeFiles/example.dir/src/main.o.requires:
 .PHONY : CMakeFiles/example.dir/src/main.o.requires
