@@ -26,7 +26,6 @@ CvHaarClassifierCascade *cascade;
 CvMemStorage *storage;
 CvSeq *faces;
 IplImage frame_copy;
-HOGDescriptor hog;
 ros::Publisher pub;
 
 
@@ -39,7 +38,7 @@ void imageCb_rgb(const sensor_msgs::ImageConstPtr& msg)
 	catch (cv_bridge::Exception& e){ROS_ERROR("cv_bridge exception: %s", e.what());return;}
 
 	frame_copy = cv_ptr->image;
-	faces = cvHaarDetectObjects(&frame_copy, cascade, storage, 1.2, 1, CV_HAAR_DO_CANNY_PRUNING, cvSize(10, 0));
+	faces = cvHaarDetectObjects(&frame_copy, cascade, storage, 1.2, 1, CV_HAAR_DO_CANNY_PRUNING, cvSize(0, 0));
 	for(int i = 0; i < (faces ? faces->total : 0); i++) {
 		CvRect *r = (CvRect*)cvGetSeqElem(faces, i);
 		CvPoint pt1 = { r->x, r->y };
@@ -47,8 +46,6 @@ void imageCb_rgb(const sensor_msgs::ImageConstPtr& msg)
 				r->y + r->height };
 		cvRectangle(&frame_copy, pt1, pt2, CV_RGB(255, 0, 0), 3, 8, 0);
 	}
-
-
 	if( faces && faces->total )
 	{
 		r = (CvRect*)cvGetSeqElem(faces, 0);
@@ -64,7 +61,6 @@ void imageCb_rgb(const sensor_msgs::ImageConstPtr& msg)
 		array.data.push_back(r->x);
 		//Publish array
 		pub.publish(array);
-		sleep(2);
 	}
 	cvShowImage(TOPIC_NAME,&frame_copy);
 	cv::waitKey(3);
@@ -82,15 +78,18 @@ int main(int argc, char** argv)
 	cv::namedWindow(TOPIC_NAME);
 	cv::resizeWindow(TOPIC_NAME,640,480);
 	cv::moveWindow(TOPIC_NAME,0,0);
-	hog.setSVMDetector(HOGDescriptor::getDefaultPeopleDetector());
 	cascade = (CvHaarClassifierCascade *) cvLoad("example1_sp_hi_fd/haarcascade_frontalface_alt.xml", 0, 0, 0);
 	storage = cvCreateMemStorage(0);
 
 	ros::init(argc, argv, "listener");
 	ros::NodeHandle n;
-	ros::Subscriber sub = n.subscribe(TOPIC_NAME, 100, imageCb_rgb);
-	pub = n.advertise<std_msgs::Int32MultiArray>("face_detected", 100);
+	ros::Subscriber sub = n.subscribe(TOPIC_NAME, 1, imageCb_rgb);
+	pub = n.advertise<std_msgs::Int32MultiArray>("face_detected", 1);
 	ros::spin();
-	//	exitExample();
+	ros::Rate r(20);
+	while(ros::ok()){
+		ros::spinOnce();
+		r.sleep();
+	}
 	return 0;
 }
